@@ -11,7 +11,6 @@ import cors from 'cors'
 const application = express();
 
 application.use(cors({
-    // Habilitamos las conexiones de cualquier puerto
     origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
 }));
@@ -25,9 +24,9 @@ application.use(bodyParser.urlencoded({extended: true}));
 
 application.use(
     session({
-        secret: SECRET, // Dato unico de nuestro sistema
-        resave: false, // Evita guardar la sesion para que no sea reutilizada
-        saveUninitialized: false, // Evita que se guarde una sesion no inicializada
+        secret: SECRET,
+        resave: false, 
+        saveUninitialized: false, 
     })
 );
 

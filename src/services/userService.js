@@ -69,13 +69,12 @@ export const validateUserService = async (email, password) => {
         throw error;
     };
     
-    // info del token
+    
     const payload = {
         userID: userFound._id,
         userEmail: userFound.email
     };
     
-    // firma(inicializacion) del token
     const token = jwt.sign(payload, SECRET, { expiresIn: "1h" });
 
     return { message: "Sesion iniciada", token}

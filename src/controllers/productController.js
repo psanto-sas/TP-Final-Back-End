@@ -16,11 +16,9 @@ export const getProducts = async (request, response) => {
         return response.status(200).json(products)
 
     } catch (error) {
-        // 204 = No hay contenido
         if (error.statusCode === 204) {
             return response.sendStatus(204);
         };
-        // 400 = error al hacer la request
         if (error.statusCode === 400) {
             return response.status(400).json({ message: error.message})
         }
